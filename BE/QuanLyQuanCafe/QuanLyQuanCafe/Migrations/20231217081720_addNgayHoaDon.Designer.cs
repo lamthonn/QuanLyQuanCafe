@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using QuanLyQuanCafe.Data;
 
@@ -11,9 +12,11 @@ using QuanLyQuanCafe.Data;
 namespace QuanLyQuanCafe.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231217081720_addNgayHoaDon")]
+    partial class addNgayHoaDon
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -75,9 +78,6 @@ namespace QuanLyQuanCafe.Migrations
                     b.Property<float>("DonGia")
                         .HasColumnType("real");
 
-                    b.Property<int>("Gio")
-                        .HasColumnType("int");
-
                     b.Property<int>("HoaDonId")
                         .HasColumnType("int");
 
@@ -107,9 +107,6 @@ namespace QuanLyQuanCafe.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("HoaDonId"));
-
-                    b.Property<int>("Gio")
-                        .HasColumnType("int");
 
                     b.Property<int>("SoBan")
                         .HasColumnType("int");

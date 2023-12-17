@@ -7,6 +7,7 @@ namespace QuanLyQuanCafe.Models
         public int ID { get; set; }
         public int SanPhamId { get; set; }
         public DateTime NgayBan { get; set; }
+        public int Gio { get; set; }
         public int Soban { get; set; }
         public int SoLuong { get; set; }
         public float DonGia { get; set; }

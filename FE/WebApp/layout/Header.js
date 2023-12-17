@@ -29,16 +29,13 @@ const contentHeader = `
                         <a class="nav-link mx-2" href="#!"><i class="fa-solid fa-table"></i>Quản lý bàn</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link mx-2" href="#!"><i class="fa-solid fa-users"></i>Quản lý nhân
-                            viên</a>
+                        <a class="nav-link mx-2" href="#!"><i class="fa-solid fa-users"></i>Quản lý nhân viên</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link mx-2" href="#!"><i class="fa-solid fa-money-bill"></i>Quản lý hóa
-                            đơn</a>
+                        <a class="nav-link mx-2" href="./HoaDon.html"><i class="fa-solid fa-money-bill"></i>Quản lý hóa đơn</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link mx-2" href="#!"><i class="fa-regular fa-calendar-check"></i>Quản lý
-                            ca trực</a>
+                        <a class="nav-link mx-2" href="#!"><i class="fa-regular fa-calendar-check"></i>Quản lý ca trực</a>
                     </li>
                 </ul>
             </div>
