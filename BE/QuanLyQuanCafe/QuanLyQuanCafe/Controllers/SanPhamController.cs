@@ -1,5 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using QuanLyQuanCafe.Data;
 using QuanLyQuanCafe.Models;
 
@@ -16,9 +16,16 @@ namespace QuanLyQuanCafe.Controllers
         }
 
         [HttpGet]
-        public async Task<List<SanPhamViewModel>> GetAllSanPham()
+        public async Task<List<SanPhamViewModel>> GetAllSanPham(string? key)
         {
-            var data = _context.SanPhams.Select(x=> new SanPhamViewModel
+            var data = _context.SanPhams.AsNoTracking();
+
+            if (!string.IsNullOrEmpty(key))
+            {
+                data = data.Where(x => x.TenSanPham.Contains(key) || x.TrangThai.Contains(key));
+            }
+
+            var result = data.Select(x=> new SanPhamViewModel
             {
                 SanPhamId = x.SanPhamId,
                 TenSanPham = x.TenSanPham,
@@ -26,8 +33,23 @@ namespace QuanLyQuanCafe.Controllers
                 SoLuong = x.SoLuong,
                 TrangThai = x.SoLuong == 0 ? "Hết hàng" : "Còn hàng"
             }).ToList();
-            return data;
+            return result;
         }
+
+        //[HttpGet("search")]
+        //public async Task<List<SanPhamViewModel>> SearchSanPham(string key)
+        //{
+        //    var data = _context.SanPhams.Where(x => x.TenSanPham.Contains(key) || x.TrangThai.Contains(key))
+        //    .Select(x => new SanPhamViewModel
+        //    {
+        //        SanPhamId = x.SanPhamId,
+        //        TenSanPham = x.TenSanPham,
+        //        Gia = x.Gia,
+        //        SoLuong = x.SoLuong,
+        //        TrangThai = x.SoLuong == 0 ? "Hết hàng" : "Còn hàng"
+        //    }).ToList();
+        //    return data;
+        //}
 
         [HttpPost]
         public async Task<SanPhamViewModel> AddSanPham(SanPhamViewModel sanPham)
@@ -63,6 +85,17 @@ namespace QuanLyQuanCafe.Controllers
                 OldSanpham.SoLuong = (float)sanPham.SoLuong;
                 OldSanpham.TrangThai = sanPham.SoLuong == 0.0 ? "Hết hàng" : "Còn hàng";
                 _context.SanPhams.Update(OldSanpham);
+                _context.SaveChanges();
+            }
+        }
+
+        [HttpDelete("{id}")]
+        public async void XoaSanPham( int id)
+        {
+            var OldSanpham = _context.SanPhams.FirstOrDefault(x => x.SanPhamId == id);
+            if (OldSanpham != null)
+            {
+                _context.SanPhams.Remove(OldSanpham);
                 _context.SaveChanges();
             }
         }
