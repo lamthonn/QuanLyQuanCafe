@@ -16,17 +16,7 @@
 <body>
     <div id="header"></div>
 
-    <div class="row" style="display: flex; align-items: top;justify-content: center; ">
-        <div class="col-auto">
-            <label for="exampleDataList" class="form-label" style="margin-top: 6px;">Tìm kiếm:</label>
-        </div>
-        <div class="col-auto" style="width: 50%;">
-            <input type="text" class="form-control" id="Search" placeholder="Nhập từ khóa">
-        </div>
-        <div class="col-auto">
-            <button type="submit" class="btn btn-primary mb-3" onclick="SearchProducts()">Tìm kiếm</button>
-        </div>
-    </div>
+    
     <div>
         <div class="headTable">
             <nav aria-label="breadcrumb">
@@ -52,6 +42,25 @@
                 </div>
             </div>
         </div>
+
+        <div class="row" style="display: flex; align-items: top;justify-content: start; padding: 0 5%;">
+            <div class="col-auto">
+                <label for="exampleDataList" class="form-label" style="margin-top: 6px;">Ngày:</label>
+            </div>
+            <div class="col-auto" style="width: 15%;">
+                <input type="date" class="form-control" id="SearchNgay" placeholder="Chọn ngày">
+            </div>
+            <div class="col-auto">
+                <label for="exampleDataList" class="form-label" style="margin-top: 6px;">Giờ:</label>
+            </div>
+            <div class="col-auto" style="width: 15%;">
+                <input type="number" max="23" min="0" class="form-control" id="SearchGio" placeholder="Giờ">
+            </div>
+            <div class="col-auto">
+                <button type="submit" class="btn btn-primary mb-3" onclick="SearchHoaDon()">Tìm kiếm</button>
+            </div>
+            
+        </div>
         <!-- modal theem hóa đơn -->
         <div class="modal fade" id="AddHoaDon" tabindex="-1" aria-labelledby="ThemHoaDonlLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
@@ -68,10 +77,15 @@
                                 placeholder="Bàn số">
                         </div>
                         <div class="form-outline datetimepicker" data-mdb-inline="true">
-                            <label for="datetimepickerInline" class="form-label">
-                              Select Date and Time</label>
-                            <input type="text" class="form-control" id="datetimepickerInline">
-                          </div>
+                            <div class="col"><label for="ThemNgay_HoaDon" class="form-label">
+                                Chọn ngày</label></div>
+                            <input type="date" class="form-control" id="ThemNgay_HoaDon">
+                        </div>
+                        <div class="mb-3">
+                            <label for="ThemGio_HoaDon" class="form-label">Giờ</label>
+                            <input type="number" max="23" min="0" class="form-control" id="ThemGio_HoaDon"
+                                placeholder="Giờ">
+                        </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary closeAddHoaDon" data-bs-dismiss="modal">Đóng</button>
                         <button type="button" class="btn btn-primary" onclick="ThemHoaDon()">Thêm</button>
