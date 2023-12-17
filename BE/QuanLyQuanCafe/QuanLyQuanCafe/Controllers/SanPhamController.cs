@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using QuanLyQuanCafe.Data;
+using QuanLyQuanCafe.Models;
 
 namespace QuanLyQuanCafe.Controllers
 {
@@ -23,9 +24,47 @@ namespace QuanLyQuanCafe.Controllers
                 TenSanPham = x.TenSanPham,
                 Gia = x.Gia,
                 SoLuong = x.SoLuong,
-                TrangThai = x.TrangThai
+                TrangThai = x.SoLuong == 0 ? "Hết hàng" : "Còn hàng"
             }).ToList();
             return data;
+        }
+
+        [HttpPost]
+        public async Task<SanPhamViewModel> AddSanPham(SanPhamViewModel sanPham)
+        {
+            var newSanPham = new SanPham
+            {
+                Gia = (float)sanPham.Gia,
+                SanPhamId = sanPham.SanPhamId,
+                TenSanPham = sanPham.TenSanPham,
+                SoLuong = (float)sanPham.SoLuong,
+                TrangThai = sanPham.SoLuong == 0.0 ? "Hết hàng" : "Còn hàng"
+            };
+            _context.SanPhams.Add(newSanPham);
+            await _context.SaveChangesAsync();
+            return new SanPhamViewModel
+            {
+                SanPhamId = newSanPham.SanPhamId,
+                TenSanPham = newSanPham.TenSanPham,
+                Gia = newSanPham.Gia,
+                SoLuong = newSanPham.SoLuong,
+                TrangThai = newSanPham.TrangThai
+            };
+        }
+
+        [HttpPut("{id}")]
+        public async void SuaSanPham(SanPhamViewModel sanPham,int id)
+        {
+            var OldSanpham = _context.SanPhams.FirstOrDefault(x=> x.SanPhamId == id);
+            if(OldSanpham != null)
+            {
+                OldSanpham.TenSanPham = sanPham.TenSanPham;
+                OldSanpham.Gia = (float)sanPham.Gia;
+                OldSanpham.SoLuong = (float)sanPham.SoLuong;
+                OldSanpham.TrangThai = sanPham.SoLuong == 0.0 ? "Hết hàng" : "Còn hàng";
+                _context.SanPhams.Update(OldSanpham);
+                _context.SaveChanges();
+            }
         }
     }
 }
