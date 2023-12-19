@@ -41,6 +41,9 @@ namespace QuanLyQuanCafe.Data
                 .ToTable("tbl_quanlychitiethoadon")
                 .HasKey(x => x.ID);
 
+            modelBuilder.Entity<Ban>()
+                .ToTable("tbl_quanlyban")
+                .HasKey(x => x.Id);
         }
     }
 }
