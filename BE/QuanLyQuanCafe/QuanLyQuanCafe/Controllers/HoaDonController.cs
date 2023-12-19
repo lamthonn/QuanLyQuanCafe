@@ -17,13 +17,17 @@ namespace QuanLyQuanCafe.Controllers
         }
 
         [HttpGet]
-        public async Task<List<HoaDonViewModel>> GetAllHoaDon(string? key)
+        public async Task<List<HoaDonViewModel>> GetAllHoaDon(string? ngay, int? gio)
         {
             var data = _context.HoaDons.AsNoTracking();
             var ChiTietHD = _context.ChiTietHoaDons.AsNoTracking();
-            if(data != null)
+            if(ngay != null)
             {
-
+                data = data.Where(x => x.ngay == DateTime.Parse(ngay));
+            }
+            if(gio != null)
+            {
+                data = data.Where(x => x.Gio == gio);
             }
             var result = data.Select(x => new HoaDonViewModel
             {

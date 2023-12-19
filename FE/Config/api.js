@@ -10,7 +10,11 @@ const api = {
     GET_ALL_HOA_DON: `${path}/api/HoaDon`,
     ADD_HOA_DON: `${path}/api/HoaDon/ThemHoaDon`,
     GET_CHI_TIET_HOA_DON: `${path}/api/HoaDon`,
-    ADD_CHI_TIET_HOA_DON: `${path}/api/HoaDon/ThemChiTietHoaDon`
+    ADD_CHI_TIET_HOA_DON: `${path}/api/HoaDon/ThemChiTietHoaDon`,
+
+    // quan ly ban
+    GET_ALL_QUAN_LY_BAN: `${path}/api/QuanLyBan`,
+    EDIT_QUAN_LY_BAN: `${path}/api/QuanLyBan`,
 };
 
 export default api;
