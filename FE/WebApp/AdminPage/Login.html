@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Đăng nhập</title>
+    <!-- Link thư viện Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Tùy chỉnh phần style */
+        body {
+            background-color: #f7f7f7;
+            font-family: Arial, sans-serif;
+        }
+
+        .login-container {
+            max-width: 400px;
+            margin: 100px auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container login-container">
+        <h2 class="text-center mb-4">Đăng nhập</h2>
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="username">Tên người dùng</label>
+                <input type="text" class="form-control" id="username" placeholder="Nhập tên người dùng">
+            </div>
+            <div class="form-group">
+                <label for="password">Mật khẩu</label>
+                <input type="password" class="form-control" id="password" placeholder="Nhập mật khẩu">
+            </div>
+            <button type="button" class="btn btn-primary btn-block" onclick="validateLogin()">Đăng nhập</button>
+        </form>
+    </div>
+
+    <script type="module" src="../assets/js/Login.js"></script>
+    <!-- Link thư viện Bootstrap JS và JavaScript -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

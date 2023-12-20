@@ -26,7 +26,9 @@ const render = async () => {
 
     const tableEl = document.querySelector("#root-tbody");
     const tableContent = dataFetching.map(el => {
-        return `
+        if(window.localStorage.getItem('role') == 'admin') {
+
+            return `
         <tr>
         <td>${el.sanPhamId}</td>
         <td>${el.tenSanPham}</td>
@@ -78,6 +80,19 @@ const render = async () => {
         </td>
     </tr>
         `
+        }
+        else {
+            return `
+            <tr>
+        <td>${el.sanPhamId}</td>
+        <td>${el.tenSanPham}</td>
+        <td>${el.gia}đ</td>
+        <td>${el.soLuong}Kg</td>
+        <td>${el.trangThai}</td>
+        <td>Không có quyền</td>
+        </tr>
+            `
+        }
     }).join('');
 
     tableEl.innerHTML = tableContent
@@ -168,7 +183,9 @@ const SearchProducts = async () => {
             const tableEl = document.querySelector("#root-tbody");
             tableEl.innerHTML = ''
             const tableContent = responseData.map(el => {
-                return `
+                if(window.localStorage.getItem('role') == 'admin') {
+
+                    return `
                 <tr>
                 <td>${el.sanPhamId}</td>
                 <td>${el.tenSanPham}</td>
@@ -220,6 +237,19 @@ const SearchProducts = async () => {
                 </td>
             </tr>
                 `
+                }
+                else {
+                    return `
+                    <tr>
+                <td>${el.sanPhamId}</td>
+                <td>${el.tenSanPham}</td>
+                <td>${el.gia}đ</td>
+                <td>${el.soLuong}Kg</td>
+                <td>${el.trangThai}</td>
+                <td>Không có quyền</td>
+                </tr>
+                    `
+                }
             }).join('');
 
             tableEl.innerHTML = tableContent
@@ -236,3 +266,19 @@ window.suaSanPham = suaSanPham;
 window.xoaSanPham = xoaSanPham;
 window.ThemSanPham = ThemSanPham;
 window.SearchProducts = SearchProducts;
+
+if(window.localStorage.getItem('role') == 'admin') {
+    document.querySelector('.rightHead').innerHTML = `
+    <div class="dropdown dropstart">
+    <button class="btn btn-sm btn-dark dropdown-toggle" type="button" data-bs-toggle="dropdown"
+        aria-expanded="false">
+        Khác
+    </button>
+    <ul class="dropdown-menu">
+        <li><button class="dropdown-item AddProducts" type="button" data-bs-toggle="modal"
+                data-bs-target="#ThemSanPham"><i class="fa-solid fa-plus"></i> Thêm sản phẩm</button>
+        </li>
+
+    </ul>
+</div>`
+}

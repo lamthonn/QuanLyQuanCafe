@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Admin\\Documents\\dai_hoc\\QuanLyQuanCafe\\BE\\QuanLyQuanCafe\\QuanLyQuanCafe\\QuanLyQuanCafe.csproj": {}
+    "D:\\code\\.net\\web nang cao\\qlcafe_minh\\QuanLyQuanCafe\\BE\\QuanLyQuanCafe\\QuanLyQuanCafe\\QuanLyQuanCafe.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Admin\\Documents\\dai_hoc\\QuanLyQuanCafe\\BE\\QuanLyQuanCafe\\QuanLyQuanCafe\\QuanLyQuanCafe.csproj": {
+    "D:\\code\\.net\\web nang cao\\qlcafe_minh\\QuanLyQuanCafe\\BE\\QuanLyQuanCafe\\QuanLyQuanCafe\\QuanLyQuanCafe.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Admin\\Documents\\dai_hoc\\QuanLyQuanCafe\\BE\\QuanLyQuanCafe\\QuanLyQuanCafe\\QuanLyQuanCafe.csproj",
+        "projectUniqueName": "D:\\code\\.net\\web nang cao\\qlcafe_minh\\QuanLyQuanCafe\\BE\\QuanLyQuanCafe\\QuanLyQuanCafe\\QuanLyQuanCafe.csproj",
         "projectName": "QuanLyQuanCafe",
-        "projectPath": "C:\\Users\\Admin\\Documents\\dai_hoc\\QuanLyQuanCafe\\BE\\QuanLyQuanCafe\\QuanLyQuanCafe\\QuanLyQuanCafe.csproj",
-        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Admin\\Documents\\dai_hoc\\QuanLyQuanCafe\\BE\\QuanLyQuanCafe\\QuanLyQuanCafe\\obj\\",
+        "projectPath": "D:\\code\\.net\\web nang cao\\qlcafe_minh\\QuanLyQuanCafe\\BE\\QuanLyQuanCafe\\QuanLyQuanCafe\\QuanLyQuanCafe.csproj",
+        "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
+        "outputPath": "D:\\code\\.net\\web nang cao\\qlcafe_minh\\QuanLyQuanCafe\\BE\\QuanLyQuanCafe\\QuanLyQuanCafe\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\DELL\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,7 +26,9 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
+          "C:\\Program Files\\dotnet\\sdk\\7.0.304\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
+          "https://nuget.grapecity.com/nuget": {},
+          "https://www.nuget.org/api/v2/": {}
         },
         "frameworks": {
           "net7.0": {
@@ -82,7 +88,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
         }
       }
     }
